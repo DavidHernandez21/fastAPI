@@ -7,3 +7,5 @@ script.py
 nohup.out
 dump.rdb
 fastapi_venv/
+launch.json
+settings.json
