@@ -1,0 +1,9 @@
+.idea
+venv/
+*.pyc
+dist/*
+lib/*
+script.py
+nohup.out
+dump.rdb
+fastapi_venv/
