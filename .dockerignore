@@ -12,3 +12,4 @@ settings.json
 # Python pycache:
 __pycache__/
 *.pdf
+.vscode/

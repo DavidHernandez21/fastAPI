@@ -27,3 +27,4 @@ nohup.out
 dump.rdb
 fastapi_venv/
 *.pdf
+.vscode/
