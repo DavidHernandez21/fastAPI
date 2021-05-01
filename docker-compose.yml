@@ -1,0 +1,9 @@
+services:
+  game:
+    build:
+      context: .
+    image: fastapi-game-local
+    ports:
+    - 80:80
+    environment:
+      PORT: ${PORT:-80}

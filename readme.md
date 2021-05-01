@@ -13,3 +13,7 @@ use the command `sudo docker build -t <image name:version> .` to build the image
 to run the image use the command `sudo docker run -d  --name <container name> -p <host port>:<container port>  <image name:version>`.
 
 Notice that by default the container is listening on port 80 to override this value use `-e PORT=<container port>`.
+
+## Run with docker-compose
+Assuming docker-compose is installed, run `docker-compose up --build game` from the project root to build and run the container. 
+ 
