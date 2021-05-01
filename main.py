@@ -1,5 +1,5 @@
 from fastapi import FastAPI #, Query
-import uvicorn
+# import uvicorn
 from classes.pydantic_classes import Team, Score, Goal
 
 
@@ -27,5 +27,5 @@ async def post_goal(team: Goal):
         return actual_score
 
 
-uvicorn.run(app, port=8080)
+# uvicorn.run(app, port=8081)
 
