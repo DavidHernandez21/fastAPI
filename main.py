@@ -1,6 +1,7 @@
 from fastapi import FastAPI #, Query
-# import uvicorn
+import uvicorn
 from classes.pydantic_classes import Team, Score, Goal
+from utils.functions import add_goal
 
 
 app = FastAPI()
@@ -17,15 +18,8 @@ async def get_score():
 
 @app.post("/goal", response_model=Score)
 async def post_goal(team: Goal):
-    goal = team.dict()
-    if goal['team'].value == "away":
-        actual_score.update({"away": actual_score['away'] + 1})
-        return actual_score
-
-    elif goal['team'].value == "home":
-        actual_score.update({"home": actual_score['home'] + 1})
-        return actual_score
+    return add_goal(team, actual_score)
 
 
-# uvicorn.run(app, port=8081)
+uvicorn.run(app, port=8081)
 
