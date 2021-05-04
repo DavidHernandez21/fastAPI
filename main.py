@@ -1,5 +1,5 @@
 from fastapi import FastAPI
-from classes.pydantic_classes import Team, Score, Goal
+from classes.pydantic_classes import Score, Goal
 from typing import List
 # import uvicorn
 
