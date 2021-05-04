@@ -1,25 +1,36 @@
-from fastapi import FastAPI #, Query
-import uvicorn
+from fastapi import FastAPI
 from classes.pydantic_classes import Team, Score, Goal
-from utils.functions import add_goal
-
+from typing import List
+# import uvicorn
 
 app = FastAPI()
 
-    
 
-actual_score = Score().dict()
+players: List[Goal] = []
+
+
+def actual_score() -> Score:
+    return Score(
+        home=sum((1 for p in players if p.team == "home")),
+        away=sum((1 for p in players if p.team == "away")),
+    )
 
 
 @app.get("/score", response_model=Score)
 async def get_score():
-    return actual_score
+    return actual_score()
 
 
 @app.post("/goal", response_model=Score)
-async def post_goal(team: Goal):
-    return add_goal(team, actual_score)
+async def post_goal(goal: Goal):
+    players.append(goal)
+    return actual_score()
 
 
-uvicorn.run(app, port=8081)
+@app.get("/players", response_model=List[Goal])
+async def get_players():
+    return players
+
+
+# uvicorn.run(app, port=8081)
 
