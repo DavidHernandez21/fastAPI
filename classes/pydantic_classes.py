@@ -1,6 +1,6 @@
 from enum import Enum
 from pydantic import BaseModel, Field #PositiveInt
-from typing import List, Optional
+from typing import  Optional
 
 
 class Team(str, Enum):
